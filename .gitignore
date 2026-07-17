@@ -1,0 +1,24 @@
+# Build output
+bin/
+obj/
+dist/
+publish/
+out/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+# .NET
+*.nupkg
+*.pdb
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store

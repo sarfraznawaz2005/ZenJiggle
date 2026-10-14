@@ -13,7 +13,16 @@ New-Item -ItemType Directory -Force -Path $dir | Out-Null
 Get-Process -Name ZenJiggle -ErrorAction SilentlyContinue | Stop-Process -Force
 
 Write-Host "Downloading ZenJiggle to $exe ..."
-Invoke-WebRequest -Uri $url -OutFile $exe -UseBasicParsing
+
+# Older Windows PowerShell may not use TLS 1.2 by default, which GitHub requires.
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+try {
+    Invoke-WebRequest -Uri $url -OutFile $exe -UseBasicParsing
+} catch {
+    Write-Host 'First download failed. Trying another method ...'
+    Start-BitsTransfer -Source $url -Destination $exe
+}
 
 Start-Process -FilePath $exe
 Write-Host 'ZenJiggle is running in the system tray.'

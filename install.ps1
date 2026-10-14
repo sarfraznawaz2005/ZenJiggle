@@ -1,9 +1,9 @@
-# Installs ZenJiggle from the latest GitHub release and starts it.
+# Installs ZenJiggle from dist/ZenJiggle.exe in this repo and starts it.
 # Usage: irm https://raw.githubusercontent.com/sarfraznawaz2005/ZenJiggle/main/install.ps1 | iex
 
 $ErrorActionPreference = 'Stop'
 
-$url = 'https://github.com/sarfraznawaz2005/ZenJiggle/releases/latest/download/ZenJiggle.exe'
+$url = 'https://raw.githubusercontent.com/sarfraznawaz2005/ZenJiggle/main/dist/ZenJiggle.exe'
 $dir = Join-Path $env:LOCALAPPDATA 'ZenJiggle'
 $exe = Join-Path $dir 'ZenJiggle.exe'
 

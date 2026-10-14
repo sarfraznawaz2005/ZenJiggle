@@ -6,6 +6,7 @@ out/
 *.o
 *.obj
 *.exe
+!dist/ZenJiggle.exe
 *.res
 *.a
 *.lib

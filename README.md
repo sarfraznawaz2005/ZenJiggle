@@ -45,7 +45,7 @@ Your options:
    ```powershell
    irm https://raw.githubusercontent.com/sarfraznawaz2005/ZenJiggle/main/install.ps1 | iex
    ```
-   The script saves the exe to `%LOCALAPPDATA%\ZenJiggle\ZenJiggle.exe` and starts it. You can read it first: [install.ps1](install.ps1).
+   The script downloads `dist/ZenJiggle.exe` from this repo, saves the exe to `%LOCALAPPDATA%\ZenJiggle\ZenJiggle.exe` and starts it. You can read it first: [install.ps1](install.ps1).
 2. **Build it yourself** (best if SAC is on). Install MinGW-w64, run `build.bat`, and run `dist\ZenJiggle.exe`. You can read every line of code first.
 3. **Turn off Smart App Control.** Open *Settings > Privacy & security > Windows Security > App & browser control > Smart App Control settings* and choose **Off**. You cannot turn it on again later without a Windows reset.
 

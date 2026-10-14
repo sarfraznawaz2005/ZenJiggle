@@ -35,6 +35,27 @@ Launch `dist\ZenJiggle.exe`. It starts in the tray with keep-awake on. Right-cli
 
 > The .NET version uses the same single-instance lock name. Close it before you run this one.
 
+## "Smart App Control blocked an app" on Windows 11
+
+`ZenJiggle.exe` is not code-signed yet. Windows 11 **Smart App Control** (SAC) blocks unsigned apps that it does not know. The app is safe, and the full source is in this repo.
+
+Your options:
+
+1. **Install with PowerShell.** This download does not get the "Mark of the Web" tag, so Windows may allow it. It is not guaranteed.
+   ```powershell
+   irm https://raw.githubusercontent.com/sarfraznawaz2005/ZenJiggle/main/install.ps1 | iex
+   ```
+   The script saves the exe to `%LOCALAPPDATA%\ZenJiggle\ZenJiggle.exe` and starts it. You can read it first: [install.ps1](install.ps1).
+2. **Build it yourself** (best if SAC is on). Install MinGW-w64, run `build.bat`, and run `dist\ZenJiggle.exe`. You can read every line of code first.
+3. **Turn off Smart App Control.** Open *Settings > Privacy & security > Windows Security > App & browser control > Smart App Control settings* and choose **Off**. You cannot turn it on again later without a Windows reset.
+
+Things that do **not** help:
+
+- Downloading from a different place. Files from the internet get a "Mark of the Web" tag, which makes Windows *more* strict, not less.
+- Right-click > Properties > Unblock. This only helps with SmartScreen, not Smart App Control.
+
+For the maintainer: the real fix is to sign the exe with a certificate from a trusted authority (for example, Microsoft Artifact Signing, formerly Trusted Signing). A self-signed certificate does not work with SAC.
+
 ## Project structure
 
 | File | Purpose |

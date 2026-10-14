@@ -1,22 +1,24 @@
 # Build output
-bin/
-obj/
-dist/
-publish/
+build/
 out/
 
-# Visual Studio / Rider
+# Compiler output
+*.o
+*.obj
+*.exe
+*.res
+*.a
+*.lib
+*.pdb
+*.ilk
+*.map
+
+# Editors / IDEs
 .vs/
+.vscode/
 .idea/
 *.user
 *.suo
-
-# .NET
-*.nupkg
-*.pdb
-project.lock.json
-project.fragment.lock.json
-artifacts/
 
 # OS junk
 Thumbs.db
